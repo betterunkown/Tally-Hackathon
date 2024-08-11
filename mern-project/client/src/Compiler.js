@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Compiler.css'; // Assuming the styles are saved in this file
+import { Editor } from '@monaco-editor/react';
 
 const Compiler = () => {
   const [language, setLanguage] = useState('python');
@@ -7,8 +8,13 @@ const Compiler = () => {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
   const [memoryUsage, setMemoryUsage] = useState('');
+  const [executionTime, setExecutionTime] = useState('');
+  const [error, setError] = useState('');
 
   const handleCompile = async () => {
+    setOutput('');
+    setError('');
+    const startTime = performance.now();
     try {
       const response = await fetch('http://localhost:5000/compile', {
         method: 'POST',
@@ -16,14 +22,17 @@ const Compiler = () => {
         body: JSON.stringify({ language, code, input }),
       });
       const data = await response.json();
+      const endTime = performance.now();
       if (response.ok) {
         setOutput(data.output);
         setMemoryUsage(data.memoryUsage);
+        setExecutionTime(`${((endTime - startTime) / 1000).toFixed(2)} seconds`);
       } else {
-        setOutput(`Error: ${data.error}`);
+        setError(`Error: ${data.error}`);
       }
     } catch (error) {
       console.error('Error:', error);
+      setError('An unexpected error occurred.');
     }
   };
 
@@ -44,10 +53,12 @@ const Compiler = () => {
         </div>
       </div>
       <div className="code-editor">
-        <textarea
+        <Editor
+          height="400px"
+          language={language}
           value={code}
-          onChange={(e) => setCode(e.target.value)}
-          placeholder="Enter your code here..."
+          onChange={(value) => setCode(value || '')}
+          options={{ selectOnLineNumbers: true }}
         />
       </div>
       <div className="input-section">
@@ -60,8 +71,10 @@ const Compiler = () => {
       </div>
       <div className="output-section">
         <h2>Output</h2>
+        {error && <p className="error-message">{error}</p>}
         <pre>{output}</pre>
         <p>Memory Usage: {memoryUsage}</p>
+        <p>Execution Time: {executionTime}</p>
       </div>
     </div>
   );

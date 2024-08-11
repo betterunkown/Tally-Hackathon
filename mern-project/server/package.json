@@ -13,7 +13,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "mongoose": "^8.5.2"
+    "mongoose": "^8.5.2",
+    "performance-now": "^2.1.0"
   },
   "proxy": "http://localhost:5000"
 }
