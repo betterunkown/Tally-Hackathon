@@ -1,0 +1,74 @@
+/* Table container */
+.table-container {
+    background-color: #444;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 20px; /* Space above the table */
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #555;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  th {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  tbody tr:nth-child(odd) {
+    background-color: #555;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #666;
+  }
+  
+  tbody tr:hover {
+    background-color: #777;
+    color: #fff;
+  }
+  
+  .clickable-title {
+    color: #1e90ff;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .clickable-title:hover {
+    color: #63b3ed;
+  }
+  
+  /* Difficulty Buttons */
+  .difficulty-button {
+    width: 80px; /* Fixed width */
+    height: 30px; /* Fixed height */
+    border-radius: 15px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    cursor: default;
+    text-align: center;
+    line-height: 30px; /* Vertically centers text */
+  }
+  
+  .difficulty-button.easy {
+    background-color: #32cd32; /* LimeGreen */
+  }
+  
+  .difficulty-button.medium {
+    background-color: #ffa500; /* Orange */
+  }
+  
+  .difficulty-button.hard {
+    background-color: #ff4500; /* OrangeRed */
+  }
+  

@@ -1,0 +1,36 @@
+.cards-container {
+    display: flex;
+    justify-content: space-between; /* Align cards in a row */
+    gap: 20px; /* Space between cards */
+    width: 100%; /* Full width */
+  }
+  
+  .card {
+    background-color: #444;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #f2f2f2;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 30%; /* Adjust width */
+  }
+  
+  .card:hover {
+    background-color: #555;
+    transform: translateY(-5px);
+  }
+  
+  .card h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #1e90ff;
+  }
+  
+  .card p {
+    margin: 10px 0 0;
+    font-size: 0.9em;
+    color: #ccc;
+  }
+  
