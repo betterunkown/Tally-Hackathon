@@ -4,6 +4,8 @@ import './App.css';
 import ProblemTable from './ProblemTable';
 import Cards from './Cards';
 import Compiler from './Compiler';
+import Upload from './Upload'; // Add your upload component
+import Contest from './Contest'; // Add your contest component
 
 function App() {
   return (
@@ -17,10 +19,13 @@ function App() {
           <div className="cards-container">
             <Cards />
           </div>
-          <div className="table-container">
+          <div className="content-container">
             <Routes>
               <Route path="/" element={<ProblemTable />} />
-              <Route path="/compiler/:id" element={<Compiler />} />
+              <Route path="/compiler" element={<Compiler />} />
+              <Route path="/upload" element={<Upload />} />
+              <Route path="/contest" element={<Contest />} />
+              {/* Define other routes here as needed */}
             </Routes>
           </div>
         </div>

@@ -1,0 +1,38 @@
+.upload-container {
+    padding: 20px;
+    background-color: #282c34;
+    color: #ffffff;
+    border-radius: 8px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 10px;
+  }
+  
+  input, textarea {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    background-color: #61dafb;
+    color: #1e1e1e;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #52c7e5;
+  }
+  
